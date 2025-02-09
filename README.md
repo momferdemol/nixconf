@@ -26,4 +26,5 @@ poweroff --reboot
 ## LXC
 
 - [lxc-revproxy](./lxc-revproxy/)
+- [lxc-shiori](./lxc-shiori/)
 - [lxc-unbound](./lxc-unbound/)
