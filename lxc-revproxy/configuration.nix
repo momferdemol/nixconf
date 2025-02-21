@@ -143,16 +143,25 @@ in
         };
       };
       "r2.lan.d35c.net" = {
+        forceSSL = true;
+        sslCertificate = CERTIFICATE;
+        sslCertificateKey = CERTIFICATE_KEY;
         locations."/" = {
           proxyPass = "http://192.168.10.22:8006";
         };
       };
       "assistant.lan.d35c.net" = {
+        forceSSL = true;
+        sslCertificate = CERTIFICATE;
+        sslCertificateKey = CERTIFICATE_KEY;
         locations."/" = {
           proxyPass = "http://192.168.20.25:8123";
         };
       };
       "explorer.lan.d35c.net" = {
+        forceSSL = true;
+        sslCertificate = CERTIFICATE;
+        sslCertificateKey = CERTIFICATE_KEY;
         locations."/" = {
           proxyPass = "http://192.168.10.31:4000/";
         };
