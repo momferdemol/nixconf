@@ -101,10 +101,7 @@
     "/mnt/media" = {
       device = "//192.168.10.26/Media";
       fsType = "cifs";
-      options = let
-    automount_opts = "credentials=/var/lib/jellyfin/.synology,rw,noperm,uid=100000  0   0";
-
-      in ["${automount_opts}"];
+      options = [ "credentials=/var/lib/jellyfin/.synology" "rw" "noperm" "uid=100000" ];
     };
   };
 
