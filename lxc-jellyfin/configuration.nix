@@ -47,7 +47,7 @@
   };
 
   networking = {
-    hostName = "lxc-media";
+    hostName = "lxc-jellfyin";
     networkmanager = {
       enable = true;
     };
@@ -74,6 +74,10 @@
       jellyfin = {
         members = [ "jellyfin" ];
       };
+      synology = {
+        gid = 10000;
+        members = [ "jellyfin" ];
+      }
     };
   };
 
