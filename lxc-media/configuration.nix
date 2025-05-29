@@ -97,24 +97,16 @@
     enable = true;
   };
 
-  fileSystem = {
+  fileSystems = {
     "/mnt/media" = {
-      enable = true;
       device = "//192.168.10.26/Media";
       fsType = "cifs";
-      options = "credentials=/var/lib/jellyfin/.synology,rw,noperm,uid=100000  0   0";
+      options = let
+    automount_opts = "credentials=/var/lib/jellyfin/.synology,rw,noperm,uid=100000  0   0";
+
+      in ["${automount_opts}"];
     };
   };
-
-  # mount synology file share
-  # fileSystems."/mnt/share" = {
-  #   device = "//192.168.10.26/Media";
-  #   fsType = "cifs";
-  #   options = let
-	# automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-    
-  #   in ["${automount_opts},credentials=/var/lib/jellyfin/.synology"];
-  # };
 
   # supress systemd units that don't work because of LXC
   systemd.suppressedSystemUnits = [
