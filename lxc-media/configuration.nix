@@ -72,7 +72,7 @@
 
     groups = {
       jellyfin = {
-        members = [ "jellyfin" "video" "render" ];
+        members = [ "jellyfin" ];
       };
     };
   };
@@ -97,16 +97,6 @@
     enable = true;
   };
 
-  fileSystems = {
-    "/mnt/media" = {
-      device = "//192.168.10.26/Media";
-      fsType = "cifs";
-      options = let
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,jellyfin,users";
-      in ["${automount_opts},credentials=/etc/nixos/.synology"];
-    };
-  };
-
   # supress systemd units that don't work because of LXC
   systemd.suppressedSystemUnits = [
     "dev-mqueue.mount"
@@ -114,5 +104,5 @@
     "sys-fs-fuse-connections.mount"
   ];
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "24.05";
 }
