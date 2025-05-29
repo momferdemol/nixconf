@@ -62,7 +62,7 @@
 
   users = {
     users = {
-      unbound = {
+      jellyfin = {
         home = "/var/lib/jellyfin";
         createHome = true;
         isSystemUser = true;
@@ -71,7 +71,7 @@
     };
 
     groups = {
-      unbound = {
+      jellyfin = {
         members = [ "jellyfin" ];
       };
     };
@@ -103,7 +103,7 @@
       fsType = "cifs";
       options = let
         automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in ["${automount_opts},credentials=/etc/nixos/.synology"];
+      in ["${automount_opts},credentials=/etc/nixos/.synology,uid=${toString config.users.users.jellyfin.uid},gid=${toString config.users.groups.jellyfin.gid}"];
     };
   };
 
