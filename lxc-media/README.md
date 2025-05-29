@@ -14,7 +14,7 @@ Use the following commands (steps) to create the container.
 
 ```sh
 TEMPLATE_STORAGE='local'
-TEMPLATE_FILE='nixos-25.05-minimal-x86_64-linux.tar.xz'
+TEMPLATE_FILE='nixos-24.05-system-x86_64-linux.tar.xz'
 CONTAINER_HOSTNAME='lxc-media'
 CONTAINER_STORAGE='local-lvm'
 CONTAINER_RAM_IN_MB='2048'
