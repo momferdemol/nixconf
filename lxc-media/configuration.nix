@@ -72,7 +72,7 @@
 
     groups = {
       jellyfin = {
-        members = [ "jellyfin" ];
+        members = [ "jellyfin" "video" "render" ];
       };
     };
   };
@@ -102,8 +102,8 @@
       device = "//192.168.10.26/Media";
       fsType = "cifs";
       options = let
-        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-      in ["${automount_opts},credentials=/etc/nixos/.synology,uid=${toString config.users.users.jellyfin.uid},gid=${toString config.users.groups.jellyfin.gid}"];
+        automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,jellyfin,users";
+      in ["${automount_opts},credentials=/etc/nixos/.synology"];
     };
   };
 
