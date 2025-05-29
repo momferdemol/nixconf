@@ -106,8 +106,7 @@ in
   };
 
   programs.bash = {
-    enable = true;
-    initExtra = ''
+    loginShellInit = ''
       ${pkgs.fastfetch}/bin/fastfetch
     '';
   };
