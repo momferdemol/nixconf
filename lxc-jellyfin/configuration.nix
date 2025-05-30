@@ -67,6 +67,7 @@
         createHome = true;
         isSystemUser = true;
         group = "jellyfin";
+        extraGroups = [ "render" "video" "audio" ];
       };
     };
 
@@ -76,7 +77,7 @@
       };
       passthrough = {
         gid = 10000;
-        members = [ "root" "jellyfin" ];
+        members = [ "jellyfin" ];
       };
     };
   };

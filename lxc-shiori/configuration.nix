@@ -60,7 +60,14 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
+  programs.bash = {
+    loginShellInit = ''
+      ${pkgs.fastfetch}/bin/fastfetch
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
+    fastfetch
     shiori
   ];
 

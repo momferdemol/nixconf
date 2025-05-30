@@ -95,7 +95,14 @@
     };
   };
 
+  programs.bash = {
+    loginShellInit = ''
+      ${pkgs.fastfetch}/bin/fastfetch
+    '';
+  };
+
   environment.systemPackages = with pkgs; [
+    fastfetch
     dig
     unbound
   ];

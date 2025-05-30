@@ -28,10 +28,31 @@ credentials=/home/.synology 0 0
 - host: `mount /media/synology`
 - host: `nano /etc/pve/lxc/LXC_ID.conf`
 
+Mount synology file share
 ```
 mp0: /media/synology/,mp=/media/synology,ro=1
-dev0: /dev/dri/card0,gid=110000,mode=0666,uid=100000
-dev1: /dev/dri/renderD128,gid=110000,mode=0666,uid=100000
+```
+
+Set GPU passthrough
+```
+lxc.cgroup2.devices.allow: c 226:0 rwm
+lxc.cgroup2.devices.allow: c 226:128 rwm
+lxc.cgroup2.devices.allow: c 29:0 rwm
+lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
+lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
+lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
+```
+
+# Post-installation checks
+
+Check the supported QSV / VA-API codecs
+```
+vainfo --display drm --device /dev/dri/renderD128
+```
+
+Check the OpenCL runtime status
+```
+ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
 ```
 
 ## Proxmox CLI
