@@ -37,8 +37,6 @@ Set GPU passthrough
 ```
 lxc.cgroup2.devices.allow: c 226:0 rwm
 lxc.cgroup2.devices.allow: c 226:128 rwm
-lxc.cgroup2.devices.allow: c 29:0 rwm
-lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
 lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
 ```
@@ -81,7 +79,7 @@ pct create "$(pvesh get /cluster/nextid)" \
   --memory "${CONTAINER_RAM_IN_MB}" \
   --cores "${CONTAINER_CPU_CORES}" \
   --rootfs ${CONTAINER_STORAGE}:${CONTAINER_DISK_SIZE_IN_GB} \
-  --unprivileged 1 \
+  --unprivileged 0 \
   --features nesting=1 \
   --cmode console \
   --onboot 1 \

@@ -96,6 +96,7 @@
     jellyfin-web
     jellyfin-ffmpeg
     libva-utils
+    intel-gpu-tools
   ];
 
   services.jellyfin = {
