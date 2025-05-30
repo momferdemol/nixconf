@@ -74,10 +74,10 @@
       jellyfin = {
         members = [ "jellyfin" ];
       };
-      synology = {
+      passthrough = {
         gid = 10000;
-        members = [ "jellyfin" ];
-      }
+        members = [ "root" "jellyfin" ];
+      };
     };
   };
 

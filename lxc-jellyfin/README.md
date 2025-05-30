@@ -6,6 +6,8 @@ The free software media system. Stream to any device from you own server, with n
 
 - Jellyfin [website](https://jellyfin.org/)
 - Mount [CIFS share](https://forum.proxmox.com/threads/tutorial-unprivileged-lxcs-mount-cifs-shares.101795/) on Proxmox
+- GPU [passthrough](https://www.simplehomelab.com/udms-11-gpu-passthrough-on-proxmox-lxc/) on Proxmox LXC
+- [Hardware Transcode](https://www.youtube.com/watch?v=tWumbDlbzLY)
 
 # Installation
 
@@ -24,10 +26,12 @@ credentials=/home/.synology 0 0
 
 - host: credentials `nano /home/.synology`
 - host: `mount /media/synology`
-- host: `nano /etc/pve/lex/LXC_ID.conf`
+- host: `nano /etc/pve/lxc/LXC_ID.conf`
 
 ```
 mp0: /media/synology/,mp=/media/synology,ro=1
+dev0: /dev/dri/card0,gid=110000,mode=0666,uid=100000
+dev1: /dev/dri/renderD128,gid=110000,mode=0666,uid=100000
 ```
 
 ## Proxmox CLI
@@ -41,7 +45,7 @@ CONTAINER_HOSTNAME='lxc-jellyfin'
 CONTAINER_STORAGE='local-lvm'
 CONTAINER_RAM_IN_MB='2048'
 CONTAINER_CPU_CORES='2'
-CONTAINER_DISK_SIZE_IN_GB='12'
+CONTAINER_DISK_SIZE_IN_GB='32'
 ```
 
 ```sh
