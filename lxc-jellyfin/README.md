@@ -40,7 +40,7 @@ lxc.cgroup2.devices.allow: c 226:128 rwm
 lxc.cgroup2.devices.allow: c 29:0 rwm
 lxc.mount.entry: /dev/dri dev/dri none bind,optional,create=dir
 lxc.mount.entry: /dev/dri/card0 dev/dri/card0 none bind,optional,create=file
-lxc.mount.entry: /dev/dri/renderD128 dev/renderD128 none bind,optional,create=file
+lxc.mount.entry: /dev/dri/renderD128 dev/dri/renderD128 none bind,optional,create=file
 ```
 
 # Post-installation checks
@@ -53,6 +53,11 @@ vainfo --display drm --device /dev/dri/renderD128
 Check the OpenCL runtime status
 ```
 ffmpeg -v verbose -init_hw_device vaapi=va:/dev/dri/renderD128 -init_hw_device opencl@va
+```
+
+See render in action
+```
+intel_gpu_top
 ```
 
 ## Proxmox CLI

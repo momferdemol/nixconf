@@ -67,7 +67,6 @@
         createHome = true;
         isSystemUser = true;
         group = "jellyfin";
-        extraGroups = [ "render" "video" ];
       };
     };
 
@@ -77,6 +76,14 @@
       };
       synology = {
         gid = 10000;
+        members = [ "jellyfin" ];
+      };
+      video = {
+        gid = 44;
+        members = [ "jellyfin" ];
+      };
+      render = {
+        gid = 104;
         members = [ "jellyfin" ];
       };
     };
