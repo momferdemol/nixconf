@@ -79,6 +79,14 @@
         gid = 10000;
         members = [ "jellyfin" ];
       };
+      passcard = {
+        gid = 44;
+        members = [ "jellyfin" ];
+      };
+      passrender = {
+        gid = 104;
+        members = [ "jellyfin" ];
+      };
     };
   };
 
