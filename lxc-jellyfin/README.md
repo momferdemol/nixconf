@@ -85,7 +85,7 @@ pct create "$(pvesh get /cluster/nextid)" \
   --cores "${CONTAINER_CPU_CORES}" \
   --rootfs ${CONTAINER_STORAGE}:${CONTAINER_DISK_SIZE_IN_GB} \
   --unprivileged 0 \
-  --features nesting=1 \
+  --features nesting=0 \
   --cmode console \
   --onboot 1 \
   --start 0

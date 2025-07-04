@@ -7,15 +7,14 @@
 
   boot.isContainer = true;
 
-  boot.kernelParams = [ "i915.force_probe=46d0" ];
-
   nixpkgs.config.allowUnfree = true;
 
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
       # vpl-gpu-rt          # for newer GPUs on NixOS >24.05 or unstable
-      onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
+      # onevpl-intel-gpu  # for newer GPUs on NixOS <= 24.05
+      intel-media-driver
     ];
   };
 
