@@ -14,8 +14,8 @@ Use the following commands (steps) to create the container.
 
 ```
 TEMPLATE_STORAGE='local'
-TEMPLATE_FILE='nixos-24.05-system-x86_64-linux.tar.xz'
-CONTAINER_HOSTNAME='lxc-shiori'
+TEMPLATE_FILE='nixos-25.05-system-x86_64-linux.tar.xz'
+CONTAINER_HOSTNAME='lxc-karakeep'
 CONTAINER_STORAGE='local-lvm'
 CONTAINER_RAM_IN_MB='1024'
 CONTAINER_CPU_CORES='1'
@@ -41,8 +41,16 @@ pct create "$(pvesh get /cluster/nextid)" \
   --start 0
   ```
 
+production
 ```
 rm /etc/nixos/configuration.nix && \
 curl https://raw.githubusercontent.com/momferdemol/nixconf/refs/heads/main/lxc-karakeep/configuration.nix \
+> /etc/nixos/configuration.nix
+```
+
+development
+```
+rm /etc/nixos/configuration.nix && \
+curl https://raw.githubusercontent.com/momferdemol/nixconf/refs/heads/dev/lxc-karakeep/configuration.nix \
 > /etc/nixos/configuration.nix
 ```
