@@ -130,7 +130,7 @@ in
         sslCertificate = CERTIFICATE;
         sslCertificateKey = CERTIFICATE_KEY;
         locations."/" = {
-          proxyPass = "http://192.168.10.23:8096";
+          proxyPass = "http://192.168.10.12:8096";
         };
       };
       "bookmarks.lan.d35c.net" = {
@@ -147,21 +147,6 @@ in
         sslCertificateKey = CERTIFICATE_KEY;
         locations."/" = {
           proxyPass = "http://192.168.10.26:5000";
-        };
-      };
-      "r2.lan.d35c.net" = {
-        locations."/" = {
-          proxyPass = "http://192.168.10.22:8006";
-        };
-      };
-      "assistant.lan.d35c.net" = {
-        locations."/" = {
-          proxyPass = "http://192.168.20.25:8123";
-        };
-      };
-      "explorer.lan.d35c.net" = {
-        locations."/" = {
-          proxyPass = "http://192.168.10.31:4000/";
         };
       };
     };

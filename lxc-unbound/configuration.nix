@@ -119,14 +119,9 @@
         interface = "0.0.0.0";
         access-control = "192.168.0.0/16 allow";
         private-domain = "lan.d35c.net";
-        local-zone = "\"lan.d35c.net.\" static";
+        local-zone = "\"lan.d35c.net.\" redirect";
         local-data = [
-          "\"media.lan.d35c.net.\tIN A 192.168.10.11\""
-          "\"bookmarks.lan.d35c.net.\tIN A 192.168.10.11\""
-          "\"bucket.lan.d35c.net.\tIN A 192.168.10.11\""
-          "\"r2.lan.d35c.net.\tIN A 192.168.10.11\""
-          "\"assistant.lan.d35c.net.\tIN A 192.168.10.11\""
-          "\"explorer.lan.d35c.net.\tIN A 192.168.10.11\""
+          "\"lan.d35c.net.\tIN A 192.168.10.11\""
         ];
       };
 
